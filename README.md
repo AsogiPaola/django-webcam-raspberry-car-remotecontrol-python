@@ -24,5 +24,8 @@ Finally, the buttons that were assigned states 13 and 14 are the ones used to ac
 and this is what the statuses sent in the browser console look like:
 ![14](https://github.com/AsogiPaola/django-webcam-raspberry-car-remotecontrol-python/assets/106194428/df46c3d5-0a6c-4f6c-8039-347a4babb836)
 
+Some great help for this project were:
 <a href="https://github.com/rpi-jefer/control-carrito/tree/master" title="Link title">Repositorio</a>
-
+<a href="https://www.youtube.com/watch?v=TrYHihRlOvM" title="Link title">Youtube video, Configurar Archivos Estáticos </a>
+<a href="https://www.youtube.com/watch?v=xz9MvyKGYio" title="Link title">Youtube video, webcam</a>
+<a href="http://www.yahboom.net/study/G1-T-PI" title="Link title">Yahboom</a>
