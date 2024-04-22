@@ -1,0 +1,2 @@
+def imprimir():
+    print("ESTOY EN UNA ARCHIVO PYTHON DESDE LA RASPBERRY")

@@ -1,0 +1,496 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARRITO EXPLORADOR</title>
+    <script src='{% static "js/jquery-1.9.1.js"%}'></script>
+    <link type="text/css" href='{% static "css/estilos.css" %}' rel='stylesheet'/>
+    <link type="text/css" href='{% static "css/bootstrap.min.css" %}' rel='stylesheet'/>
+    <link rel="shortcut icon" href='{% static "img/icono.png" %}' type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#INICIO">INICIO</a>
+            <a href="#CAMARA">CAMARA</a>
+            <a href="#PROYECTOS">COMANDOS</a>
+            <a href="#REDES">REPOSITORIO</a>
+            <a href="#CONTACTOS">CONTACTO</a>
+        </nav>
+        <section class="textos-header" id="INICIO">
+            <h1>CARRITO</h1>
+            <h2>Robot multiproposito</h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <path d="M0.00,49.99 C238.37,241.27 211.28,-60.69 502.48,101.15 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgb(255, 255, 255);"></path></svg></div>
+        <title>Activacion Camara</title>
+    </header>
+
+    <main>
+        <section class="contenedor sobre-video" id="camara">
+            <h2 class="titulo"> Vision por camara</h2>
+            <div class="contenedor-sobre-video" >
+                <!-- Para mostrar el video en un elemento <img> -->
+                <img src="{% url 'video_feed' %}" alt="Video Feed"  class="img-video">
+                <div class="contenido-textos">
+                    <h3><span>1</span>VISION carrito </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius veniam dignissimos d
+                        eleniti in adplaceat, recusandae officiis iure dolore nulla. <section>
+                    </section></p>
+                    <h3><span>2</span>AUTONOMO</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis earum similique ducimus dignissimos nulla laborum corrupti fugiat reiciendis eius? Hic tenetur nam explicabo reprehenderit totam ab ut consequuntur eius eveniet?</p>
+                </div>
+                <video autoplay>
+                    <source src="{% url 'video_feed' %}" type="multipart/x-mixed-replace">
+                </video>
+            </div>
+                
+        </section>
+        </div>
+    </main>
+
+<div class="container">
+    <div class="columna">
+        <h3>CONTROL REMOTO</h3>
+        <hr>
+        <div class="cuadro_exto" >
+            <h4 id="texto" class="btn btn-large  disabled" disabled="disabled"></h4>
+        </div>
+        <hr>
+        <section>
+            <h4>Movimiento del vehiculo</h4>
+            <table border="0" align="center" cellpadding="20">
+                <tr>
+                    <td></td>
+                    <td><img src="{% static 'img/avanza.png' %}" class="boton" id="avanza"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'img/izquierda.png' %}" class="boton" id="izquierda"></td>
+                    <td><img src="{% static 'img/parar.png' %}" class="boton" id="para"></td>
+                    <td><img src="{% static 'img/derecha.png' %}" class="boton" id="derecha"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><img src="{% static 'img/retrocede.png' %}" class="boton" id="retrocede"></td>
+                    <td></td>
+                </tr>    
+            </table>
+        </section>
+    </div>
+    
+    <div class="columna center-table">
+        <section>
+            <h4>Giros del vehiculo</h4>
+            <table border="0" cellpadding="20">
+                <!-- Segunda tabla con dos botones -->
+                <tr>
+                    <td><img src="{% static 'img/giro_izquierda.png' %}" class="boton" id="girar_izquierda"></td>
+                    <td></td>
+                    <td><img src="{% static 'img/giro_derecha.png' %}" class="boton" id="girar_derecha"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center"><h4>Modo autonomo</h4></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center"><img src="{% static 'img/play.png' %}" class="boton" id="autonomo"></td>
+                    <td colspan="3" align="center"><img src="{% static 'img/parar.png' %}" class="boton" id="autonomo_stop"></td>
+                </tr> 
+            </table>
+        </section>
+    </div>
+    
+    <div class="columna right-table">
+        <section>
+            <h4>Servomotores de la camara</h4>
+            <table border="0" cellpadding="20">
+                <!-- Tercera tabla con dos botones -->                
+               <tr>
+                    <td></td>
+                    <td><img src="{% static 'img/avanza.png' %}" class="boton" id="servo_aumenta"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'img/izquierda.png' %}" class="boton" id="servo_izquierda"></td>
+                    <td><img src="{% static 'img/parar.png' %}" class="boton" id="servos_paran"></td>
+                    <td><img src="{% static 'img/derecha.png' %}" class="boton" id="servo_derecha"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><img src="{% static 'img/retrocede.png' %}" class="boton" id="servo_disminuye"></td>
+                    <td></td>
+                </tr>   
+            </table>
+        </section>
+    </div>
+</div>     
+    
+<script type="text/javascript">
+var estado="";
+$(function(){
+$("#avanza").click(function(){
+	$('#texto').show().text("Avanza");
+	$("#texto").removeClass('btn-info btn-primary btn-success btn-inverse').addClass( "btn-danger" );
+	$(this).removeClass('boton').addClass( "boton_activo" );
+	$("#derecha").removeClass('boton_activo').addClass( "boton" );
+	$("#izquierda").removeClass('boton_activo').addClass( "boton" );
+	$("#retrocede").removeClass('boton_activo').addClass( "boton" );
+	$("#para").removeClass('boton_activo').addClass( "boton" );
+	
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=1;
+});
+$("#izquierda").click(function(){
+	$('#texto').show().text("Giro Izquierda");
+	$("#texto").removeClass('btn-danger btn-primary btn-success btn-inverse').addClass( "btn-info" );
+	$(this).removeClass('boton').addClass( "boton_activo" );
+	$("#avanza").removeClass('boton_activo').addClass( "boton" );
+	$("#derecha").removeClass('boton_activo').addClass( "boton" );
+	$("#retrocede").removeClass('boton_activo').addClass( "boton" );
+	$("#para").removeClass('boton_activo').addClass( "boton" );
+	
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=2;
+});
+$("#derecha").click(function(){
+	$('#texto').show().text("Giro Derecha");
+	$("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+	$(this).removeClass('boton').addClass( "boton_activo" );
+	$("#avanza").removeClass('boton_activo').addClass( "boton" );
+	$("#izquierda").removeClass('boton_activo').addClass( "boton" );
+	$("#retrocede").removeClass('boton_activo').addClass( "boton" );
+	$("#para").removeClass('boton_activo').addClass( "boton" );
+	
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=3;
+});
+$("#retrocede").click(function(){
+	$('#texto').show().text("Retrocede");
+	$("#texto").removeClass('btn-success btn-info btn-danger btn-inverse').addClass( "btn-primary" );
+	$(this).removeClass('boton').addClass( "boton_activo" );
+	$("#avanza").removeClass('boton_activo').addClass( "boton" );
+	$("#izquierda").removeClass('boton_activo').addClass( "boton" );
+	$("#derecha").removeClass('boton_activo').addClass( "boton" );
+	$("#para").removeClass('boton_activo').addClass( "boton" );
+	
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=4;
+});
+$("#para").click(function(){
+	$('#texto').show().text("Detenido");
+	$("#texto").removeClass(' btn-primary btn-success btn-info btn-danger').addClass( "btn-inverse" );
+	$(this).removeClass('boton').addClass( "boton_activo" );
+	$("#avanza").removeClass('boton_activo').addClass( "boton" );
+	$("#izquierda").removeClass('boton_activo').addClass( "boton" );
+	$("#derecha").removeClass('boton_activo').addClass( "boton" );
+	$("#retrocede").removeClass('boton_activo').addClass( "boton" );
+	
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=5;
+ });
+ $("#girar_izquierda").click(function(){
+    $('#texto').show().text("Girar a la Izquierda");
+    $("#texto").removeClass('btn-danger btn-primary btn-success btn-inverse').addClass( "btn-info" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+	$("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=6;
+});
+
+$("#girar_derecha").click(function(){
+    $('#texto').show().text("Girar a la Derecha");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=7;
+});
+$("#servo_aumenta").click(function(){
+    $('#texto').show().text("Aumenta 10 grados al servo");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=8;
+});
+$("#servo_disminuye").click(function(){
+    $('#texto').show().text("Disminuye 10 grados al servo");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=9;
+});
+$("#servo_izquierda").click(function(){
+    $('#texto').show().text("Gira a la izquierda 10 grados");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=10;
+});
+
+$("#servo_derecha").click(function(){
+    $('#texto').show().text("Gira a la derecha 10 grados");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=11;
+})
+
+$("#servos_paran").click(function(){
+    $('#texto').show().text("Servos de camara quietos");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+    
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=12;
+})
+
+$("#autonomo").click(function(){
+    $('#texto').show().text("Modo de conduccion autonomo: on");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo_stop").removeClass('boton_activo').addClass( "boton" );
+    window.estado=13;
+})
+
+$("#autonomo_stop").click(function(){
+    $('#texto').show().text("Modo de conduccion autonomo: off");
+    $("#texto").removeClass('btn-primary btn-info btn-danger btn-inverse').addClass( "btn-success" );
+    $(this).removeClass('boton').addClass( "boton_activo" );
+    $("#avanza").removeClass('boton_activo').addClass( "boton" );
+    $("#izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#retrocede").removeClass('boton_activo').addClass( "boton" );
+    $("#para").removeClass('boton_activo').addClass( "boton" );
+
+    $("#girar_izquierda").removeClass('boton_activo').addClass( "boton" );
+    $("#girar_derecha").removeClass('boton_activo').addClass( "boton" );
+
+    $("#servo_aumenta").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_disminuye").removeClass('boton_activo').addClass( "boton" );
+
+    $("#servo_derecha").removeClass('boton_activo').addClass( "boton" );
+    $("#servo_izquierda").removeClass('boton_activo').addClass( "boton" );
+
+    $("#servos_paran").removeClass('boton_activo').addClass( "boton" );
+    $("#autonomo").removeClass('boton_activo').addClass( "boton" );
+    window.estado=14;
+})
+
+$(this).click(function(){
+   console.log("estado: "+estado);
+    $.ajax({
+		data:{valor_estado: estado},
+		url:"procesa_estado/",
+		type:'POST',
+		success: function(response){
+			//alert("Salida: "+response );
+		}
+	});
+  });
+
+});
+</script>
+
+<footer>
+    <div class="contenedor-footer" id="CONTACTOS">
+        <div class="content-foo">
+            <h4>Phone</h4>
+            <p>+57 123456</p>
+        </div>
+        <div class="content-foo">
+            <h4>Email</h4>
+            <p>explorador@gmail.com</p>
+        </div>
+        <div class="content-foo">
+            <h4>Location</h4>
+            <p>Colombia</p>
+        </div>
+    </div>
+    <h2 class="titulo-final">&copy; EXPLORADOR | Robot </h2>
+</footer>
+
+</body>
+</html>
