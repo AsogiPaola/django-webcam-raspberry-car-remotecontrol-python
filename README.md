@@ -34,3 +34,4 @@ Some great help for this project were:
   
 </ul>
 
+In this project I implemented different libraries, among its main ones, opencv, threading, RPIO, django, HttpResponse, StreamingHttpResponse, os among others, and the languages implemented are Python, java, html and css
