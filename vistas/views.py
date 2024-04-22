@@ -69,17 +69,6 @@ def gen(camera):
         yield (b'--frame\r\n'
                b'Content-TYpe: image/jpeg\r\n\r\n'+ frame + b'\r\n\r\n')
    
-def contenidoHTML(request, nombre, edad):
-    contenido = """
-    <html>
-    <body>
-    <p>Nombre : %s / Edad:  %s </p>
-    
-    </body>
-    </html>
-
-    """ % (nombre ,edad)
-    return HttpResponse(contenido)
 
 def Templates(request):
     #abro documento que contiene a la plantilla
@@ -95,6 +84,7 @@ def Templates(request):
 def procesa_estado(request):
     if request.method == 'POST' and 'valor_estado' in request.POST:
         estado = request.POST['valor_estado']
+        #estados del 1 al 7 pertenecen al control manual
         if estado == '1':
             avanza()
         elif estado == '2':
@@ -109,7 +99,7 @@ def procesa_estado(request):
             girar_izquierda()
         elif estado == '7':
             girar_derecha()
-            
+        #estados del 8 al 12 pertenecen al control de servomotores
         elif estado == '8':
             increase_angle()
         elif estado == '9':
@@ -120,7 +110,7 @@ def procesa_estado(request):
             decrease_angle_h()
         elif estado == '12':
             stop_servos()
-            
+        #estados del 1 al 7 pertenecen al control autonomo
         elif estado == '13':
             main(True)
         elif estado == '14':
